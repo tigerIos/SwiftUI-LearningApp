@@ -12,6 +12,9 @@
 		CE04061527361F71001F5244 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE04061427361F71001F5244 /* Assets.xcassets */; };
 		CE04061827361F71001F5244 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE04061727361F71001F5244 /* Preview Assets.xcassets */; };
 		CE040625273622FB001F5244 /* ContentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE040624273622FB001F5244 /* ContentModel.swift */; };
+		CE0406282736C91F001F5244 /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = CE0406262736C91E001F5244 /* data.json */; };
+		CE0406292736C91F001F5244 /* style.html in Resources */ = {isa = PBXBuildFile; fileRef = CE0406272736C91F001F5244 /* style.html */; };
+		CE04062B2736CB60001F5244 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE04062A2736CB60001F5244 /* Models.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +25,9 @@
 		CE04061727361F71001F5244 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		CE04061927361F71001F5244 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CE040624273622FB001F5244 /* ContentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentModel.swift; sourceTree = "<group>"; };
+		CE0406262736C91E001F5244 /* data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = data.json; sourceTree = "<group>"; };
+		CE0406272736C91F001F5244 /* style.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = style.html; sourceTree = "<group>"; };
+		CE04062A2736CB60001F5244 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +100,7 @@
 		CE0406212736217A001F5244 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				CE04062A2736CB60001F5244 /* Models.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -101,6 +108,8 @@
 		CE04062227362182001F5244 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				CE0406262736C91E001F5244 /* data.json */,
+				CE0406272736C91F001F5244 /* style.html */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -170,6 +179,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE04061827361F71001F5244 /* Preview Assets.xcassets in Resources */,
+				CE0406282736C91F001F5244 /* data.json in Resources */,
+				CE0406292736C91F001F5244 /* style.html in Resources */,
 				CE04061527361F71001F5244 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -184,6 +195,7 @@
 				CE04061327361F6A001F5244 /* HomeView.swift in Sources */,
 				CE04061127361F6A001F5244 /* LearningApp.swift in Sources */,
 				CE040625273622FB001F5244 /* ContentModel.swift in Sources */,
+				CE04062B2736CB60001F5244 /* Models.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
