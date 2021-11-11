@@ -52,6 +52,7 @@ struct HomeView: View {
             }
             .navigationTitle("Get Started")
         }
+    
         
     }
 }
