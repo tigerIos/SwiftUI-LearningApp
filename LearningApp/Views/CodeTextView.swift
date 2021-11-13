@@ -24,6 +24,7 @@ struct CodeTextView: UIViewRepresentable {
         //Set the attributed text for the lesson
         textView.attributedText = model.lessonDescription
         
+        //Set to the top of the page initial view
         textView.scrollRectToVisible(CGRect(x: 0, y: 0, width: 1, height: 1), animated: false)
     }
 }
