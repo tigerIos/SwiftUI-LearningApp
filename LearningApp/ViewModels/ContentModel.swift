@@ -21,12 +21,17 @@ class ContentModel:ObservableObject {
     @Published var currentLesson:Lesson?
     var currentLessonIndex = 0
     
+    //Current question
+    @Published var currentQuestion:Question?
+    var currentQuestionIndex = 0
+    
+    
     //Current lesson explanation
-    @Published var lessonDescription = NSAttributedString()
+    @Published var CodeText = NSAttributedString()
     
     //Current selected content and test
     @Published var currentContentSelected : Int?
-    
+    @Published var currentTestSelected: Int?
     
     var styleData:Data?
     
@@ -105,7 +110,7 @@ class ContentModel:ObservableObject {
         
         currentLesson = currentModule!.content.lessons[currentLessonIndex]
         
-        lessonDescription = addStyling(currentLesson!.explanation)
+        CodeText = addStyling(currentLesson!.explanation)
         
         
     }
@@ -117,7 +122,7 @@ class ContentModel:ObservableObject {
         if currentLessonIndex < currentModule!.content.lessons.count {
             
             currentLesson = currentModule!.content.lessons[currentLessonIndex]
-            lessonDescription = addStyling(currentLesson!.explanation)
+            CodeText = addStyling(currentLesson!.explanation)
         }
         else {
             
@@ -133,6 +138,24 @@ class ContentModel:ObservableObject {
         
     }
     
+    func beginTest(_ moduleId:Int) {
+        
+        //set the current module
+        beginModule(moduleId)
+        
+        //set the current question index
+        currentQuestionIndex = 0
+        
+        //if there are questions, set teh current question to the 1st one
+        if currentModule?.test.questions.count ?? 0 > 0 {
+           currentQuestion = currentModule?.test.questions[currentQuestionIndex]
+            
+            //Set the question ocntent as well
+            CodeText = addStyling(currentQuestion!.content)
+            
+        }
+        
+    }
     //MARK: - Code Styling
     
     private func addStyling (_ htmlString:String)-> NSAttributedString {
