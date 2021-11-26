@@ -37,7 +37,11 @@ class ContentModel:ObservableObject {
     
     init() {
         
+        //parse local included json data
         getLocalData()
+        
+        //download remote json file and parse data
+   //     getRemoteData()
     }
     
     //MARK: - data methods
@@ -72,6 +76,10 @@ class ContentModel:ObservableObject {
             print("Couldn't parse style data")
         }
     }
+    
+ //   func getRemoteData() {
+        
+//    }
     
     //MARK: - module navigation methods
     
@@ -148,7 +156,7 @@ class ContentModel:ObservableObject {
         
         //if there are questions, set teh current question to the 1st one
         if currentModule?.test.questions.count ?? 0 > 0 {
-           currentQuestion = currentModule?.test.questions[currentQuestionIndex]
+           currentQuestion = currentModule!.test.questions[currentQuestionIndex]
             
             //Set the question ocntent as well
             CodeText = addStyling(currentQuestion!.content)

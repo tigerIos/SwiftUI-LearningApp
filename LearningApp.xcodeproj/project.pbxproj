@@ -23,6 +23,7 @@
 		CE040638273AD8EA001F5244 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE040637273AD8EA001F5244 /* Constants.swift */; };
 		CE040659273C3332001F5244 /* CodeTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE040658273C3331001F5244 /* CodeTextView.swift */; };
 		CE09FFCB2748A59700FA951F /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE09FFCA2748A59700FA951F /* TestView.swift */; };
+		CE09FFCD275082F100FA951F /* TestResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE09FFCC275082F100FA951F /* TestResultView.swift */; };
 		CED9049427403FE00072ED2A /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CED9049327403FE00072ED2A /* WebKit.framework */; };
 		CED90496274044290072ED2A /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED90495274044290072ED2A /* WebView.swift */; };
 		CED904B5274061690072ED2A /* RectangleCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED904B4274061690072ED2A /* RectangleCard.swift */; };
@@ -47,6 +48,7 @@
 		CE040637273AD8EA001F5244 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		CE040658273C3331001F5244 /* CodeTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeTextView.swift; sourceTree = "<group>"; };
 		CE09FFCA2748A59700FA951F /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
+		CE09FFCC275082F100FA951F /* TestResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestResultView.swift; sourceTree = "<group>"; };
 		CED9049327403FE00072ED2A /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		CED90495274044290072ED2A /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
 		CED904B4274061690072ED2A /* RectangleCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RectangleCard.swift; sourceTree = "<group>"; };
@@ -118,6 +120,7 @@
 				CED90495274044290072ED2A /* WebView.swift */,
 				CED904B4274061690072ED2A /* RectangleCard.swift */,
 				CE09FFCA2748A59700FA951F /* TestView.swift */,
+				CE09FFCC275082F100FA951F /* TestResultView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -248,6 +251,7 @@
 				CE040638273AD8EA001F5244 /* Constants.swift in Sources */,
 				CE09FFCB2748A59700FA951F /* TestView.swift in Sources */,
 				CED90496274044290072ED2A /* WebView.swift in Sources */,
+				CE09FFCD275082F100FA951F /* TestResultView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

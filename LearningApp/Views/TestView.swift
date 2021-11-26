@@ -32,15 +32,13 @@ struct TestView: View {
                 ScrollView {
                     VStack {
                         ForEach(0..<model.currentQuestion!.answers.count,id:\.self) {index in
-                            Button(action: {
+                            Button {
                                 //track the selected index
                                 selectedAnswerIndex = index
-                                
-                            },
-                            label: {
+                            } label: {
                                 ZStack{
                                     if submitted == false {
-                                        RectangleCard(color: index == selectedAnswerIndex ? .gray :.white)
+                                        RectangleCard(color: index == selectedAnswerIndex ? .gray : .white)
                                             .frame(height:48)
                                     }
                                     else {
@@ -65,15 +63,17 @@ struct TestView: View {
                                     }
                                     Text(model.currentQuestion!.answers[index])
                                 }
-                            } )
-                            .disabled(submitted) }
+                            } 
+                            .disabled(submitted)
+                            
+                        }
                     }
                     .accentColor(.black)
                     .padding()
                 }
                 
                 //Button to complete
-                Button(action: {
+                Button {
                     //check answer has been submitted, move to the next question
                     
                     if submitted == true {
@@ -93,31 +93,32 @@ struct TestView: View {
                     }
                     }
                     
-                }, label: {
+                } label: {
                     ZStack {
                         RectangleCard(color: .green)
                             .frame(height:48)
                         Text(buttonText)
                             .bold()
-                            .foregroundColor(.white)
+                            .foregroundColor(Color.white)
                         
                     }
                     .padding()
-                } )
+                }
                 .disabled(selectedAnswerIndex == nil)
             }
             .navigationBarTitle("\(model.currentModule?.category ?? "") Test")
         }
-        else  {
-            //Test hasn't loaded yet
-            ProgressView()
+        if model.currentQuestion == nil  {
+            //If current question is nil
+            TestResultView(numCorrect: numCorrect)
         }
+        
     }
     
     var buttonText:String {
     //Check if teh answer has been submitted
     if submitted == true {
-        if model.currentQuestionIndex + 1 == model.currentModule?.test.questions.count {
+        if model.currentQuestionIndex + 1 == model.currentModule!.test.questions.count {
             //this is the last question
             return "Finish"
         }
