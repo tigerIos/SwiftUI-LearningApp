@@ -21,7 +21,7 @@ struct TestView: View {
             
             VStack (alignment: .leading) {
                 //Question number
-                Text("Question\(model.currentQuestionIndex + 1) of \(model.currentModule?.test.questions.count ?? 0) ")
+                Text("Question \(model.currentQuestionIndex + 1) of \(model.currentModule?.test.questions.count ?? 0) ")
                     .padding(.leading, 20)
                 
                 //Question
@@ -32,47 +32,41 @@ struct TestView: View {
                 ScrollView {
                     VStack {
                         ForEach(0..<model.currentQuestion!.answers.count,id:\.self) {index in
-                            
-                          
-                              Button(action: {
-                                    //track the selected index
-                                    selectedAnswerIndex = index
-                                    
-                                },
-                                   label: {
-                                    ZStack{
-                                        if submitted == false {
+                            Button(action: {
+                                //track the selected index
+                                selectedAnswerIndex = index
+                                
+                            },
+                            label: {
+                                ZStack{
+                                    if submitted == false {
                                         RectangleCard(color: index == selectedAnswerIndex ? .gray :.white)
-                                        .frame(height:48)
+                                            .frame(height:48)
                                     }
-                                        else {
-                                            //Answer has been submitted:
-                                            if  (index == selectedAnswerIndex && index == model.currentQuestion!.correctIndex) || index == model.currentQuestion!.correctIndex
-                                            //User has selected the right answer - Show a green background
-                                            {  RectangleCard(color: Color.green)
-                                                .frame(height:48)
-                                            }
-                                            else if index == selectedAnswerIndex && index != model.currentQuestion!.correctIndex
-                                            {
-                                                //User has selected the wrong answer - Show a red background
-                                                RectangleCard(color: Color.red)
-                                                    .frame(height:48)
-                                            }
-                                            else
-                                                {
-                                                //This button is the corrct answer
-                                                RectangleCard(color: Color.white)
-                                                    .frame(height:48)
-                                            }
+                                    else {
+                                        //Answer has been submitted:
+                                        if  (index == selectedAnswerIndex && index == model.currentQuestion!.correctIndex) || index == model.currentQuestion!.correctIndex
+                                        // Show a green background
+                                        {  RectangleCard(color: Color.green)
+                                            .frame(height:48)
                                         }
-                                        Text(model.currentQuestion!.answers[index])
+                                        else if index == selectedAnswerIndex && index != model.currentQuestion!.correctIndex
+                                        {
+                                            //User has selected the wrong answer - Show a red background
+                                            RectangleCard(color: Color.red)
+                                                .frame(height:48)
+                                        }
+                                        else
+                                        {
+                                            //This button is the correct answer
+                                            RectangleCard(color: Color.white)
+                                                .frame(height:48)
+                                        }
                                     }
+                                    Text(model.currentQuestion!.answers[index])
+                                }
                             } )
-                                .disabled(submitted)
-
-                                   }
-                            
-                        
+                            .disabled(submitted) }
                     }
                     .accentColor(.black)
                     .padding()
@@ -80,21 +74,33 @@ struct TestView: View {
                 
                 //Button to complete
                 Button(action: {
-                    //change submitted state to true
-                    submitted = true
+                    //check answer has been submitted, move to the next question
+                    
+                    if submitted == true {
+                        model.nextQuestion()
+                        //Reset properties
+                        
+                        submitted = false
+                        selectedAnswerIndex = nil
+                        
+                        
+                    }
+                    else {
+                        submitted = true
                     //check the asnwer, and increment the counter if correct
                     if selectedAnswerIndex == model.currentQuestion!.correctIndex {
                         numCorrect += 1
+                    }
                     }
                     
                 }, label: {
                     ZStack {
                         RectangleCard(color: .green)
-                            .frame(height:20)
-                        Text("Submit")
+                            .frame(height:48)
+                        Text(buttonText)
                             .bold()
                             .foregroundColor(.white)
-                            
+                        
                     }
                     .padding()
                 } )
@@ -107,8 +113,24 @@ struct TestView: View {
             ProgressView()
         }
     }
+    
+    var buttonText:String {
+    //Check if teh answer has been submitted
+    if submitted == true {
+        if model.currentQuestionIndex + 1 == model.currentModule?.test.questions.count {
+            //this is the last question
+            return "Finish"
+        }
+        else {
+            return "Next"
+        }
+        
+    }
+    else {
+    return "Submit"
+    }
 }
-
+}
 
 struct TestView_Previews: PreviewProvider {
     static var previews: some View {
